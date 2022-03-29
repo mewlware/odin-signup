@@ -1,0 +1,272 @@
+/* IMPORTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+/* CSS RESET */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button,
+fieldset,
+input,
+legend,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input, button, textarea, select {
+    font: inherit;
+  }
+
+fieldset {
+    border: none;
+}
+
+p, label, input, button {
+    font-size: 1.3rem;
+}
+
+
+/* VARIABLES */
+
+:root {
+    --total-width: 100vw;
+    --sideheader-width: 30%;
+    --main-width: calc((var(--total-width)) - var(--sideheader-width));
+    
+    --total-height: 100vh;
+
+    --main-bgcolor: hsl(241, 57%, 15%);
+
+    --title-color: hsl(141, 81%, 79%);
+    --subtitle-color: hsl(141, 35%, 55%);
+
+    --text-main: hsl(243, 54%, 92%);
+    --text-lighter: hsl(240, 100%, 97%);
+    --text-medium: hsl(242, 43%, 67%);
+    --text-darken: hsl(243, 40%, 22%);
+
+    --input-bg: hsl(241, 36%, 30%);
+    --input-bg-hover: hsl(241, 28%, 50%);
+    --input-bg-focus: var(--button-bg-hover);
+    --input-darken: var(--input-bg);
+    --input-focus: var(--subtitle-color);
+
+    --accent-color2: hsl(241, 34%, 40%);
+
+    --button-bg: hsl(141, 56%, 77%);
+    --button-bg-hover: hsl(141, 82%, 89%);
+    --button-accent: var(--title-color);
+
+    --a: var(--title-color);
+    --a-hover: var(--button-bg-hover);
+
+    --bg-image: url(assets/magicpattern.jpg);
+}
+
+body {
+    display:flex;
+    height: var(--total-height);
+
+    font-family: 'Brygada 1918', serif;
+}
+
+.sidebar {
+    width: var(--sideheader-width);
+
+    position: relative;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 0 48px;
+
+    color: var(--text-main);
+
+}
+
+.sidebar::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    background-image: var(--bg-image);
+    background-color: var(--main-bgcolor);
+    background-size: contain;
+    filter: brightness(50%);
+}
+
+.main {
+    width: var(--main-width);
+    background-color: var(--main-bgcolor);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    padding: 0 48px;
+
+    color: var(--text-main);
+
+}
+
+/* SIDEBAR SKELETON */
+
+.sidebar > header {
+    padding: 132px 0 0 0;
+}
+
+/* MAIN SKELETON */
+.main > * {
+    max-width: 75%;
+}
+
+.main > .signup-header {
+    padding: 132px 0 0 0;
+    margin-bottom: 48px;
+
+}
+
+/* FORM SKELETON*/
+
+.form-content {
+    margin-bottom: 24px;
+}
+
+.form-content > fieldset {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* SIDEBAR CONTENT */
+.title {
+    position: relative;
+    top: 0;
+    
+}
+.title > h1 {
+    font-family: 'Rakkas', sans-serif, cursive;
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--title-color);
+
+    position: relative;
+
+    line-height: 100%;
+}
+
+.title > h2 {
+    color: var(--subtitle-color);
+}
+
+.title-decor {
+    position:absolute;
+    bottom: 48px;
+    left: 70%;
+}
+
+footer {
+    margin-bottom: 24px;
+}
+
+footer > p {
+    font-size: 1rem;
+    color: var(--text-medium);
+    position:relative;
+}
+
+/*MAIN CONTENT*/
+
+.main h2,
+.main .emphasized {
+    font-size: 1.8rem;
+}
+
+.main header {
+    font-size: 1.5rem;
+}
+
+/*FORM CONTENT*/
+
+form h2 {
+    color: var(--button-accent);
+    margin-bottom: 24px;
+}
+
+.form-input-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
+    margin-bottom: 16px;
+}
+
+.form-input-group > label {
+    margin-bottom: 6px;
+}
+
+input {
+    border: 1px solid var(--accent-color2);
+    border-radius: 6px;
+
+    background-color: var(--input-bg);
+    padding: 8px;
+
+    color: var(--text-lighter);
+}
+
+input::placeholder {
+    color: var(--text-medium);
+}
+
+input:hover {
+    background-color: var(--input-bg-hover);
+}
+
+input:active, input:focus {
+    border: 1px solid var(--input-darken);
+    outline: 2px solid var(--input-focus);
+    background-color: var(--input-bg-focus);
+    color: var(--text-darken);
+}
+
+form button {
+    border: 1px solid var(--button-accent);
+    border-radius: 6px;
+
+    width: 180px;
+    background-color: var(--button-bg);
+    padding: 8px;
+
+    margin-bottom: 6px;
+
+    color: var(--text-darken);
+}
+
+form button:hover {
+    background-color: var(--button-bg-hover);
+}
+
+form a {
+    color: var(--a);
+}
+
+form a:hover {
+    color: var(--a-hover);
+}
