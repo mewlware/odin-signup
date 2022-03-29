@@ -1,8 +1,7 @@
 /* IMPORTS */
 
-@import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Brawler:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 /* CSS RESET */
 *, *::before, *::after {
@@ -55,6 +54,8 @@ p, label, input, button {
 
     --title-color: hsl(141, 81%, 79%);
     --subtitle-color: hsl(141, 35%, 55%);
+    --title-accent: hsl(141, 30%, 42%);
+    --subtitle-accent: hsl(141, 30%, 29%);
 
     --text-main: hsl(243, 54%, 92%);
     --text-lighter: hsl(240, 100%, 97%);
@@ -64,14 +65,14 @@ p, label, input, button {
     --input-bg: hsl(241, 36%, 30%);
     --input-bg-hover: hsl(241, 28%, 50%);
     --input-bg-focus: var(--button-bg-hover);
-    --input-darken: var(--input-bg);
+    --input-darken: var(--title-color);
     --input-focus: var(--subtitle-color);
 
-    --accent-color2: hsl(241, 34%, 40%);
+    --accent-color: var(--text-darken);
 
     --button-bg: hsl(141, 56%, 77%);
     --button-bg-hover: hsl(141, 82%, 89%);
-    --button-accent: var(--title-color);
+    --button-accent: hsl(140, 30%, 56%);
 
     --a: var(--title-color);
     --a-hover: var(--button-bg-hover);
@@ -83,7 +84,7 @@ body {
     display:flex;
     height: var(--total-height);
 
-    font-family: 'Brygada 1918', serif;
+    font-family: 'Brawler', serif;
 }
 
 .sidebar {
@@ -134,8 +135,8 @@ body {
 }
 
 /* MAIN SKELETON */
-.main > * {
-    max-width: 75%;
+.main > header {
+    max-width: 80%;
 }
 
 .main > .signup-header {
@@ -158,28 +159,40 @@ body {
 /* SIDEBAR CONTENT */
 .title {
     position: relative;
-    top: 0;
+    top: 0px;
+
+    display: flex;
     
 }
-.title > h1 {
-    font-family: 'Rakkas', sans-serif, cursive;
-    font-size: 80px;
+.title h1 {
+    font-family: 'Pirata One', sans-serif, cursive;
+    font-size: 72px;
     font-weight: 700;
     color: var(--title-color);
-
-    position: relative;
+    text-shadow: 4px 4px var(--title-accent);
 
     line-height: 100%;
 }
 
-.title > h2 {
-    color: var(--subtitle-color);
+.title h1:hover {
+    text-shadow: 6px 6px 12px var(--title-accent);
 }
 
-.title-decor {
-    position:absolute;
-    bottom: 48px;
-    left: 70%;
+.title h2 {
+    color: var(--subtitle-color);
+    text-shadow: -2px 2px var(--subtitle-accent);
+}
+
+.title h2:hover {
+    text-shadow: -2.4px 2.4px 4px var(--subtitle-accent);
+}
+
+.logo {
+    height: 48px;
+    flex: 0 0 48px;
+    
+    margin-top: 12px;
+    margin-right: 24px;
 }
 
 footer {
@@ -206,8 +219,13 @@ footer > p {
 /*FORM CONTENT*/
 
 form h2 {
-    color: var(--button-accent);
+    color: var(--title-color);
     margin-bottom: 24px;
+    text-shadow: 2.4px 2.4px var(--title-accent);
+}
+
+form h2:hover {
+    text-shadow: 4px 4px 6px var(--title-accent);
 }
 
 .form-input-group {
@@ -222,13 +240,16 @@ form h2 {
 }
 
 input {
-    border: 1px solid var(--accent-color2);
+    border: 1px solid var(--accent-color);
     border-radius: 6px;
 
     background-color: var(--input-bg);
     padding: 8px;
 
     color: var(--text-lighter);
+
+    min-width: 200px;
+    max-width: 300px;
 }
 
 input::placeholder {
@@ -250,23 +271,31 @@ form button {
     border: 1px solid var(--button-accent);
     border-radius: 6px;
 
-    width: 180px;
+    width: 150px;
     background-color: var(--button-bg);
     padding: 8px;
 
-    margin-bottom: 6px;
+    margin-bottom: 12px;
 
     color: var(--text-darken);
 }
 
 form button:hover {
     background-color: var(--button-bg-hover);
+    box-shadow: 0px 4px 6px var(--button-accent);
+}
+
+form button:focus {
+    outline: 2px solid var(--button-accent);
+    box-shadow: 0px 4px 6px var(--button-accent);
 }
 
 form a {
     color: var(--a);
+    text-decoration: none;
 }
 
 form a:hover {
     color: var(--a-hover);
+    text-decoration: underline;
 }
